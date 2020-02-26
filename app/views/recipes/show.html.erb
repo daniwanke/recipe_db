@@ -4,7 +4,9 @@
   <strong>Title:</strong>
   <%= @recipe.title %>
 </p>
-
+<% if @recipe.image? %>
+	<%= image_tag @recipe.image.url, class: "recipe-show" %>
+<%end%>
 <p>
   <strong>Description:</strong>
   <%= @recipe.description %>
