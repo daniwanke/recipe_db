@@ -5,10 +5,6 @@ class RecipesController < ApplicationController
   # GET /recipes.json
   def index
     @recipes = Recipe.all
-      respond_to do |format|
-        format.html 
-        format.json# index.html.erb
-      end
   end
 
   # GET /recipes/1
@@ -71,8 +67,8 @@ class RecipesController < ApplicationController
       @recipe = Recipe.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
+    # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-params.require(:recipe).permit(:remove_image, :image, :title, :description, ingredients_attributes:[:id, :content, :_destroy], steps_attributes:[:id, :direction, :_destroy])
-end
+      params.require(:recipe).permit(:remove_image, :image, :title, :description, ingredients_attributes:[:id, :content, :_destroy], steps_attributes:[:id, :direction, :_destroy])
+    end
 end

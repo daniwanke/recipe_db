@@ -1,24 +1,20 @@
-<%= if @recipe.image? %>
-	<=% image_tag @recipe.image.url, class: "recipe-show" %>
-<% end %>
-<p>
-  <strong>Title:</strong>
+  <p><strong>Title:</strong>
   <%= @recipe.title %>
 </p>
-<% if @recipe.image.url %>
-	<%= image_tag recipe.image.url, class: "recipe-show" %>
-<%end%>
 <p>
   <strong>Description:</strong>
   <%= @recipe.description %>
 </p>
+</ul>
+<%= if @recipe.image? %>
+	<=% image_tag @recipe.image.url, class: "recipe-show" %>
+<% end %>
 <h3>Ingredients</h3>
 <ul>
 <% for @ingredient in @recipe.ingredients %>
 <li><%= @ingredient.content %></li>
 
 <% end %>
-</ul>
 
 <h3>Steps</h3>
 <ol>
